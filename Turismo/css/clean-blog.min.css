@@ -13,6 +13,12 @@
     width: 100%;
     height: 50%;
 }
+.imgProducto{
+    margin-right: 10%;
+    float: left;
+    width: 50%;
+    height: 30%;
+}
 
 p{
     text-align: justify;

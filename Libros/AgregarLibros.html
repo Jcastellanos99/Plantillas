@@ -8,7 +8,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Agregar Autores</title>
+  <title>Agregar Libros</title>
 
   <!-- Bootstrap core CSS -->
   <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -31,13 +31,27 @@
 
             var porElementos=document.forms["form1"].elements[0].value; 
            // Obtenemos el valor por el id 
-           var porId=document.getElementById("nombre").value;
-           var porImagen = document.getElementById("imagen").value;
+           var porNombre=document.getElementById("nombre").value;
+           var porImagen = document.getElementById("img").value;
+           var porDescripcion=document.getElementById("descripcion").value;
+           var porCategoria = document.getElementById("seleccion").value;
             // Obtenemos el valor por el Nombre 
             // Obtenemos el valor por el nombre de la clase var 
             porClassName=document.getElementsByClassName("form-control")[0].value;  
-            document.getElementById("resultado").innerHTML=" \ Autor:<br>"+porElementos+" \ <br>Por ID: <br>"+porImagen; 
+            document.getElementById("resultado").innerHTML="\ Autor del Libro:"+porCategoria+" \ <br> Nombre del Libro:"+porNombre+" \<br>Sipnosis:"+porDescripcion; 
     }
+
+
+    function mostrar(){
+        var archivo = document.getElementById("file").files[0];
+        var reader = new FileReader();
+        if (file) {
+          reader.readAsDataURL(archivo );
+          reader.onloadend = function () {
+            document.getElementById("img").src = reader.result;
+          }
+  }
+}
 
   </script>
 
@@ -71,7 +85,7 @@
             <a class="nav-link" href="Login.html">Iniciar Sesion</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="AgregarAutores.html">Agregar Autores</a>
+            <a class="nav-link" href="AgregarLibros.html">Agregar Libros</a>
           </li>
         </ul>
       </div>
@@ -86,7 +100,7 @@
         <div class="col-lg-8 col-md-10 mx-auto">
           <div class="page-heading">
             <h1></h1>
-            <span class="subheading">Agrega Nuevos Autores a la Lista </span>
+            <span class="subheading">Agrega Nuevos Libros  a la Lista </span>
           </div>
         </div>
       </div>
@@ -97,22 +111,40 @@
   <div class="container">
     <div class="row">
       <div class="col-lg-8 col-md-10 mx-auto" id= "principal">
-        <p> Completa Los Datos Para Agregar un Autor</p>
+        <p> Completa Los Datos Para Agregar un nuevo libro</p>
         <!-- Contact Form - Enter your email address on line 19 of the mail/contact_me.php file to make this form work. -->
         <!-- WARNING: Some web hosts do not allow emails to be sent through forms to common mail hosts like Gmail or Yahoo. It's recommended that you use a private domain email address! -->
         <!-- To use the contact form, your site must be on a live web host with PHP! The form will not work locally! -->
         <form id="form1"> 
-          Nombre Autor:<br>
+          Categoria Producto : 
+          <p> <select name="seleccion" id="seleccion"  style = "width: 50%;"class="form-control"> 
+            <option value="Abbi Glines">Abbi Glines</option> 
+            <option value="Wendy Higgins">Wendy Higgins</option>
+            <option value="Jennifer L. Almentrout">Jennifer L. Almentrout</option> 
+            <option value="Cassandra Clare">Cassandra Clare</option>
+            <option value="John Green">John Green</option> 
+            <option value="Linda Kage">Linda Kage</option>
+            <option value="Rachel Hawkins">Rachel Hawkins</option>
+            <option value="Becca Fitzpatrick">Becca Fitzpatrick</option> 
+            <option value="Lauren Kate">Lauren Kate</option>
+            <option value="Lisa Helen Gray">Lisa Helen Gray</option>
+            </select>
+            </p> 
+          Nombre Libro:<br>
           <input type="text" name="nombre" value="" id="nombre" class="form-control">  
-          Imagen:<br>
-          <input type="text" name="nombre" value="" id="imagen" class="form-control">   
+          <br>
+          Portada de Libro:<br>
+            <input type="file" id="file" accept="image/*" onchange="mostrar()"/>
+            <br><br>
+          Sipnosis:<br>
+          <input type="text" name="nombre" value="" id="descripcion" class="form-control">  
           <!-- <image type="text" name="nombre" value="" id="imagen" class="form-control" src='porImagen'>  -->
-          
         </p>
             </form> 
-            <input type="button" value="obtener el nombre" onclick="capturar()"> 
+            <input type="button" style = "background-color: blueviolet;"class="btn btn-primary" value="Agregar Libro" onclick="capturar()"> 
             <br><br>
-            <label style = "font-size: 30px; color: blueviolet; font-weight: bold;">Autores</label>
+            <label style = "font-size: 30px; color: blueviolet; font-weight: bold;">Libro</label>
+            <img class = "imgProducto"id="img"/>
             <div id="resultado">
               <br><br>
             </div> 
@@ -124,7 +156,7 @@
     </div>
   </div>
 
-  <hr>
+  <hr style ="margin-top: 15%;">
 
   <!-- Footer -->
   <footer>

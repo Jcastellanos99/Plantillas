@@ -10,7 +10,8 @@ document.getElementById('contactForm').addEventListener("submit",(e)=>{
 
     if (email.value == 'admin@gmail.com' && password.value == '123456'){
         window.location.href = "http://192.168.1.40/HTML/Proyecto%20III%20Parcial%20Desarrollo/Plantillas/Libros/index.html";
-        console.log("Holis Si Funciono jajaj ")
+        // window.location.href = "C:/xampp/htdocs/HTML/Proyecto%20III%20Parcial%20Desarrollo/Plantillas/Libros/index.html";
+        
     }
     else{
         alert("incorrecto");
