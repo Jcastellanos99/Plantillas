@@ -21,6 +21,26 @@
   <!-- Custom styles for this template -->
   <link href="css/clean-blog.min.css" rel="stylesheet">
 
+  <script>
+    function capturar() {
+    //  var porElementos=document.forms["formAgregar"].elements[0].value; 
+    //  var porId=document.getElementById("name").value;
+    //  var porNombre=document.getElementsByName("name")[0].value;
+    //  var porTagName=document.getElementsByTagName("input")[0].value; 
+    // porClassName=document.getElementsByClassName("form-control")[0].value;
+
+            var porElementos=document.forms["form1"].elements[0].value; 
+           // Obtenemos el valor por el id 
+           var porId=document.getElementById("nombre").value;
+           var porImagen = document.getElementById("imagen").value;
+            // Obtenemos el valor por el Nombre 
+            // Obtenemos el valor por el nombre de la clase var 
+            porClassName=document.getElementsByClassName("form-control")[0].value;  
+            document.getElementById("resultado").innerHTML=" \ Autor:<br>"+porElementos+" \ <br>Por ID: <br>"+porImagen; 
+    }
+
+  </script>
+
 </head>
 
 <body>
@@ -28,7 +48,7 @@
   <!-- Navigation -->
   <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
     <div class="container">
-      <a class="navbar-brand" href="index.html">ENtre Metaforas</a>
+      <a class="navbar-brand" href="index.html">Entre Metaforas</a>
       <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         Menu
         <i class="fas fa-bars"></i>
@@ -81,28 +101,24 @@
         <!-- Contact Form - Enter your email address on line 19 of the mail/contact_me.php file to make this form work. -->
         <!-- WARNING: Some web hosts do not allow emails to be sent through forms to common mail hosts like Gmail or Yahoo. It's recommended that you use a private domain email address! -->
         <!-- To use the contact form, your site must be on a live web host with PHP! The form will not work locally! -->
-        <form name="sentMessage" id="formAgregar" novalidate>
-          <div class="control-group">
-            <div class="form-group floating-label-form-group controls">
-              <label>Nombre del Autor</label>
-         <input type="text" class="form-control" placeholder="Nombre" id="name"  value="" required data-validation-required-message="Por Favor Ingrese Un Nombre del autor.">
-              <p class="help-block text-danger"></p>
-            </div>
-          </div>
-          <div class="control-group">
-            <div class="form-group floating-label-form-group controls">
-              <label>Foto del Autor </label>
-              <input type="text" class="form-control" placeholder="Imagen" id="imagen" required data-validation-required-message="Agregue una Foto.">
-              <p class="help-block text-danger"></p>
-            </div>
-          </div>
-          <br>
-          <div id="success"></div>
-          <button type="submit" class="btn btn-primary" id="sendMessageButton" onclick="datos()">Agregar</button>
-        </form>
+        <form id="form1"> 
+          Nombre Autor:<br>
+          <input type="text" name="nombre" value="" id="nombre" class="form-control">  
+          Imagen:<br>
+          <input type="text" name="nombre" value="" id="imagen" class="form-control">   
+          <!-- <image type="text" name="nombre" value="" id="imagen" class="form-control" src='porImagen'>  -->
+          
+        </p>
+            </form> 
+            <input type="button" value="obtener el nombre" onclick="capturar()"> 
+            <br><br>
+            <label style = "font-size: 30px; color: blueviolet; font-weight: bold;">Autores</label>
+            <div id="resultado">
+              <br><br>
+            </div> 
         <br><br><br>
-        <label>Autores</label>
-        <label></label>
+        <div id= "resultado">
+        </div>
         <img/>
       </div>
     </div>
@@ -147,7 +163,7 @@
   </footer>
 
   <!-- Bootstrap core JavaScript -->
-  <script  type="text/javascript" src = "JavaScript/agregarAutores.js"></script>
+  <!-- <script  type="text/javascript" src = "JavaScript/agregarAutores.js"></script> -->
   <script src="vendor/jquery/jquery.min.js"></script>
   <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 

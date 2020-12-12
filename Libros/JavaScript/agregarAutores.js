@@ -1,4 +1,3 @@
-const { name } = require("browser-sync");
 
 var datos = function() {
     
